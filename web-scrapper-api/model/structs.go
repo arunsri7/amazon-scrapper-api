@@ -1,21 +1,15 @@
 package model
 
-import (
-	"time"
-)
+type Request struct {
+	URL string
+}
 
 //Request object
-type Request struct {
+type PostData struct {
 	URL         string
 	Name        string
 	Details     string
 	ReviewCount string
 	Price       string
 	ImageURL    string
-	time        time.Time
-}
-
-//Response object
-type Response struct {
-	Response string
 }

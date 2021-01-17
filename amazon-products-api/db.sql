@@ -1,10 +1,10 @@
 CREATE TABLE IF NOT EXISTS products (
     product_url VARCHAR(255) PRIMARY KEY,
     product_name VARCHAR(255) UNIQUE KEY,
-    price INT,
+    price VARCHAR(255),
     details VARCHAR(255),
     image_url VARCHAR(255),
-    review_count INT,
+    review_count VARCHAR(255),
     date_updated datetime
 );
 

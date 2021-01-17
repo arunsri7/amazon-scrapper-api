@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	fmt.Println("Server Running")
+	fmt.Println("Amazon-product-api is running")
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/addProducts", handler.AddProducts)
 	log.Fatal(http.ListenAndServe(":8000", router))
