@@ -1,5 +1,11 @@
-# amazon-docker-api
+# amazon-scrapper-api
+##Setup
 
+	* Git clone git@github.com:arunsri7/amazon-scrapper-api.git
+	* cd amazon-scrapper-api
+	* docker-compose up --build -d
+	* docker-compose up
+	
 ## API Endpoints :
   * web-scrapper-api
 	  * Has one endpoint : scrapeAmazonData
