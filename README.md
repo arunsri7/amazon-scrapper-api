@@ -1,4 +1,7 @@
 # amazon-scrapper-api
+
+Amazon-scrapper-api(web-scapper-api) scrapes the data from the given amazon product page and calls another api(product-api) which pushes the scrapped data to mongo db atlas.
+
 ## Setup
 
 	* Git clone git@github.com:arunsri7/amazon-scrapper-api.git
@@ -65,5 +68,13 @@
               "url": "amazon.com"} 
 	
 
+## Limitations
+	* For some reason Amazon doens't return consistent data for scrapping. Right now even if the scrapper doesn't 
+	get the required data it pushes the url to the db. If after it gets the data after retries, it updates the 
+	respective data in the db. 
 
+## TODO
 
+	* use ENV variables
+	* Appropriate naming for variables, api, etc
+	* Use a response for the web-scrapper-api
