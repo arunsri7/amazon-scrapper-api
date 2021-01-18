@@ -13,3 +13,7 @@ type PostData struct {
 	Price       string
 	ImageURL    string
 }
+
+type Response struct {
+	Response string
+}

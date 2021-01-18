@@ -14,7 +14,6 @@ import (
 func Scrape(w http.ResponseWriter, r *http.Request) {
 	var req model.Request
 	json.NewDecoder(r.Body).Decode(&req)
-
 	c := colly.NewCollector()
 	c.OnRequest(func(r *colly.Request) {
 		fmt.Println("Visiting", req.URL)
@@ -35,18 +34,18 @@ func Scrape(w http.ResponseWriter, r *http.Request) {
 		ratings = e.ChildText("span#acrCustomerReviewText")
 
 		fmt.Printf("Product Name: %s \n", productName)
-		fmt.Printf("Product Reviews: %s \n", ratings)
+		fmt.Printf("Review Count: %s \n", ratings)
 		fmt.Printf("Product Price: %s \n", price)
-		fmt.Printf("Product Discription: %s \n", details)
+		fmt.Printf("Product Details: %s \n", details)
 	})
 
 	c.OnHTML("div#imgTagWrapperId", func(e *colly.HTMLElement) {
 		imageURL = e.ChildAttr("img", "data-old-hires")
-		fmt.Printf("Product Image: %s \n", imageURL)
+		fmt.Printf("Image URL : %s \n", imageURL)
 	})
 	c.Visit(req.URL)
 	// Creating byte data to be passed as object to the POST api to save the data
-	res := model.PostData{
+	postData := model.PostData{
 		req.URL,
 		productName,
 		details,
@@ -55,14 +54,18 @@ func Scrape(w http.ResponseWriter, r *http.Request) {
 		imageURL,
 	}
 
-	jsonData, err := json.Marshal(res)
+	jsonData, err := json.Marshal(postData)
 
-	resp, err := http.Post("http://localhost:8000/addProducts",
+	_, err = http.Post("http://172.31.1.3:8000/addProducts",
 		"application/json", bytes.NewBuffer(jsonData))
 	if err != nil {
 		print(err, " error making post request")
 	}
+	res := model.Response{
+		Response: "Sucessfully added to the db",
+	}
+
 	w.Header().Set("Content-Type", "application/json")
-	json.NewEncoder(w).Encode(resp)
+	json.NewEncoder(w).Encode(res)
 
 }

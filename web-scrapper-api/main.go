@@ -10,8 +10,8 @@ import (
 )
 
 func main() {
-	fmt.Println("Amaozon Api server is running")
+	fmt.Println("Web Scrapper Api server is running on port :5002")
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/scrapeAmazonData", handler.Scrape)
-	log.Fatal(http.ListenAndServe(":5001", router))
+	log.Fatal(http.ListenAndServe(":5002", router))
 }

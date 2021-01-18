@@ -11,8 +11,10 @@ import (
 )
 
 func main() {
-	fmt.Println("Amazon-product-api is running")
+	fmt.Println("Amazon-product-api is running on port 8000")
 	router := mux.NewRouter().StrictSlash(true)
 	router.HandleFunc("/addProducts", handler.AddProducts)
+	router.HandleFunc("/getAllProducts", handler.GetAllProducts)
+	router.HandleFunc("/getProductByURL", handler.GetProductByURL)
 	log.Fatal(http.ListenAndServe(":8000", router))
 }

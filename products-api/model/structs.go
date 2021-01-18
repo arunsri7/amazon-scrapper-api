@@ -19,3 +19,8 @@ type Request struct {
 type Response struct {
 	Response string
 }
+
+//URL object
+type URL struct {
+	URL string
+}
