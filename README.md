@@ -75,6 +75,7 @@ Amazon-scrapper-api(web-scapper-api) scrapes the data from the given amazon prod
 
 ## TODO
 
-	* use ENV variables
+	* Use ENV variables
 	* Appropriate naming for variables, api, etc
 	* Use a response for the web-scrapper-api
+	* Add better comments
