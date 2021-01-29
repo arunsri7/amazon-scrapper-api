@@ -2,6 +2,31 @@
 
 Amazon-scrapper-api(web-scapper-api) scrapes the data from the given amazon product page and calls another api(product-api) which pushes the scrapped data to mongo db atlas.
 
+## Directory tree
+
+	golang-api
+	├── README.md
+	├── docker-compose.yml
+	├── products-api
+	│   ├── Dockerfile
+	│   ├── db.sql
+	│   ├── go.mod
+	│   ├── go.sum
+	│   ├── handler
+	│   │   └── handler.go
+	│   ├── main.go
+	│   └── model
+	│       └── structs.go
+	└── web-scrapper-api
+	    ├── Dockerfile
+	    ├── go.mod
+	    ├── go.sum
+	    ├── handler
+	    │   └── handler.go
+	    ├── main.go
+	    └── model
+		└── structs.go
+
 ## Setup
 
 	* Git clone git@github.com:arunsri7/amazon-scrapper-api.git
